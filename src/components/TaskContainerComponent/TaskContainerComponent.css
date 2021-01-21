@@ -1,0 +1,17 @@
+.containerTask {
+    margin: 20px;
+}
+
+.containerAdd {
+    margin-top: 50px;
+}
+
+.inputTask {
+    width: 650px;
+    padding: 5px;
+}
+
+.btnAddTask {
+    width: 100px;
+    margin-left: 10px;
+}

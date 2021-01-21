@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { TaskService } from '../services/TaskService'
-import { ITask } from '../Interface/ITask'
-import { TaskListComponent } from './TaskListComponent';
-import { TaskContext } from '../Context/TaskContext'
+import { TaskService } from '../../services/TaskService'
+import { ITask } from '../../Interface/ITask'
+import { TaskListComponent } from '../../components/TaskListComponent/TaskListComponent'
+import { TaskContext } from '../../Context/TaskContext'
+import  './TaskContainerComponent.css'
 
 export const TaskContainerComponent = () => {
 
@@ -27,8 +28,7 @@ export const TaskContainerComponent = () => {
       setTimeToRefresh(Date.now());
     }
     else {
-      // Just show the message Error in the consolo at the moment
-      console.log(messageError);
+      console.error(messageError);
     }
    
   }
@@ -65,20 +65,40 @@ export const TaskContainerComponent = () => {
 
   return (
 
-      <div>
+      <div className="container-fluid containerTask">
 
-        <TaskContext.Provider value= {{ checkUpdate : handleCheckUpdate }} >
+        <div className="row">
 
-          <TaskListComponent title="Pending Tasks" taskList={taskList.pendingTaskList} />
+          <TaskContext.Provider value= {{ checkUpdate : handleCheckUpdate }} >
 
-          <TaskListComponent title="Completed Tasks" taskList={taskList.compelteTaskList} />
-          
+          <div className="col-6">
+            <TaskListComponent title="Pending Tasks" taskList={taskList.pendingTaskList} />
+          </div>
+
+          <div className="col-6">
+            <TaskListComponent title="Completed Tasks" taskList={taskList.compelteTaskList} />
+          </div>
+
+          </TaskContext.Provider>
+
+        </div>
+
+        <hr></hr>
+        <div className="row containerAdd">
+
           <input  type="text" 
-                  value={descriptionTask} 
-                  onChange = { handleChangeDescription }
-                  placeholder="Add new task"/> <button onClick= { handleAddButton }> Add Task</button>
+                    value={descriptionTask} 
+                    onChange = { handleChangeDescription }
+                    placeholder="Add new task"
+                    className="form-control inputTask"
+          /> 
 
-        </TaskContext.Provider>
+          <button className="btn btn-success btnAddTask" 
+                  onClick= { handleAddButton }> 
+                  Add Task
+          </button>
+
+        </div>
 
       </div>
   )

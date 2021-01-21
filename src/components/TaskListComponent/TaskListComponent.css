@@ -1,0 +1,14 @@
+.title {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: rgb(24, 26, 158);
+    text-decoration: underline;
+}
+
+.containerList {
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 10px;
+}
+

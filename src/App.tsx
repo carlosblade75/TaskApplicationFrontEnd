@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {TaskContainerComponent} from  './components/TaskContainerComponent';
+import {TaskContainerComponent} from  './components/TaskContainerComponent/TaskContainerComponent';
 
 const App: React.FC = () => {
   return (
