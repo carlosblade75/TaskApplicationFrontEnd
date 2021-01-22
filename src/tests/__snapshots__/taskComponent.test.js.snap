@@ -11,6 +11,8 @@ exports[`Testing for <TaskComponent/> should show <TaskComponent/> properly 1`] 
   <label
     className="form-check-label CheckBoxLabel "
     onClick={[Function]}
-  />
+  >
+    Task Description
+  </label>
 </div>
 `;

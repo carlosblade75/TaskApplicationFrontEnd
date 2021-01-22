@@ -47,17 +47,25 @@ export const TaskContainerComponent = () => {
    
   }
 
+  const  AddTaskService = async(task) =>  {
+
+    await TaskService.AddTask(task);
+  }
+
   const handleAddButton = async () => {
 
     try {
 
-      const task:ITask = {isCompleted :false, id : 0, description : descriptionTask};
+      if (descriptionTask.length > 0) {
 
-      await TaskService.AddTask(task);
-  
-      setDescriptionTask('');
-      
-      setTimeToRefresh(Date.now());
+        const task:ITask = {isCompleted :false, id : 0, description : descriptionTask};
+        
+        AddTaskService(task)
+
+        setDescriptionTask('');
+        
+        setTimeToRefresh(Date.now());
+      }
     }
     catch(error) {
       console.error(error);
@@ -66,7 +74,6 @@ export const TaskContainerComponent = () => {
   }
 
   const handleChangeDescription = (e: React.FormEvent<HTMLInputElement>) => {
-
     setDescriptionTask(e.currentTarget.value)
   }
 
@@ -78,7 +85,7 @@ export const TaskContainerComponent = () => {
 
       const completedTask = data.filter( (task:ITask) => task.isCompleted);
        
-      setTaskList({pendingTaskList: pendingTask, compelteTaskList: completedTask});
+      setTaskList({pendingTaskList: pendingTask, completedTaskList: completedTask});
 
     });
 
@@ -97,7 +104,7 @@ export const TaskContainerComponent = () => {
           </div>
 
           <div className="col-6">
-            <TaskListComponent title="Completed Tasks" taskList={taskList.compelteTaskList} />
+            <TaskListComponent title="Completed Tasks" taskList={taskList.completedTaskList} />
           </div>
 
           </TaskContext.Provider>
@@ -105,8 +112,9 @@ export const TaskContainerComponent = () => {
         </div>
 
         <hr></hr>
-        <div className="row containerAdd">
 
+        <div className="row containerAdd">
+          
           <input  type="text" 
                     value={descriptionTask} 
                     onChange = { handleChangeDescription }

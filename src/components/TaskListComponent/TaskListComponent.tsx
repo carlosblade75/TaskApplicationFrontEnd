@@ -2,6 +2,7 @@ import React from 'react';
 import { ITask } from '../../Interface/ITask'
 import { TaskComponent } from '../TaskComponent/TaskComponent';
 import './TaskListComponent.css'
+import PropTypes from "prop-types";
 
 type PropsTaskList = {
     title: string,
@@ -41,4 +42,14 @@ export const TaskListComponent = (props: PropsTaskList) => {
       </>
 
     )
+}
+
+TaskListComponent.propTypes = {
+  title : PropTypes.string.isRequired,
+  taskList: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.number, description: PropTypes.string, isCompleted: PropTypes.bool})).isRequired
+}
+
+TaskListComponent.defaultProps = {
+  title: 'Task List',
+  taskList:[]
 }

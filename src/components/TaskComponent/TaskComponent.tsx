@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { TaskContext } from '../../Context/TaskContext'
 import './TaskComponent.css'
+import PropTypes from "prop-types";
 
 type PropsTask = {
     id: number,
@@ -35,4 +36,13 @@ export const TaskComponent = (props: PropsTask) => {
             
         </div>
     )
+}
+
+TaskComponent.propTypes = {
+    description : PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
+}
+
+TaskComponent.defaultProps = {
+    isCompleted: false
 }

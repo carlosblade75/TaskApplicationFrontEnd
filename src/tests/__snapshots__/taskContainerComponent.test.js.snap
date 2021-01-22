@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing for <TaskContainerComponent/> should show <TaskContainerComponent/> properly 1`] = `
+<div
+  className="container-fluid containerTask"
+>
+  <div
+    className="row"
+  >
+    <ContextProvider
+      value={
+        Object {
+          "checkUpdate": [Function],
+        }
+      }
+    >
+      <div
+        className="col-6"
+      >
+        <TaskListComponent
+          taskList={Array []}
+          title="Pending Tasks"
+        />
+      </div>
+      <div
+        className="col-6"
+      >
+        <TaskListComponent
+          taskList={Array []}
+          title="Completed Tasks"
+        />
+      </div>
+    </ContextProvider>
+  </div>
+  <hr />
+  <div
+    className="row containerAdd"
+  >
+    <input
+      className="form-control inputTask"
+      onChange={[Function]}
+      placeholder="Add new task"
+      type="text"
+      value=""
+    />
+    <button
+      className="btn btn-success btnAddTask"
+      onClick={[Function]}
+    >
+      Add Task
+    </button>
+  </div>
+</div>
+`;

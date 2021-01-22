@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing for <TaskListComponent/> should show <TaskListComponent/> properly 1`] = `
+<Fragment>
+  <h3
+    className="title"
+  >
+    Task List
+     - (
+    0
+    )
+  </h3>
+  <div
+    className="containerList"
+  >
+    <ul
+      className="listTask"
+    />
+  </div>
+</Fragment>
+`;
