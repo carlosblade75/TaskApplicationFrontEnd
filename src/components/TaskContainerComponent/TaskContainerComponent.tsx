@@ -9,7 +9,7 @@ export const TaskContainerComponent = () => {
 
   const defaultProps = {
     pendingTaskList : [],
-    compelteTaskList : [],
+    completedTaskList : [],
   };
 
   const [taskList, setTaskList] = useState(defaultProps);
@@ -47,9 +47,12 @@ export const TaskContainerComponent = () => {
    
   }
 
-  const  AddTaskService = async(task) =>  {
+  const  AddTaskService = async(task:ITask) =>  {
 
     await TaskService.AddTask(task);
+
+    setTimeToRefresh(Date.now());
+
   }
 
   const handleAddButton = async () => {
@@ -63,8 +66,7 @@ export const TaskContainerComponent = () => {
         AddTaskService(task)
 
         setDescriptionTask('');
-        
-        setTimeToRefresh(Date.now());
+
       }
     }
     catch(error) {
@@ -81,6 +83,8 @@ export const TaskContainerComponent = () => {
     
     fetchDataAsync().then( data => {
       
+      console.log(timeToRefresh, data)
+
       const pendingTask = data.filter( (task:ITask) => !task.isCompleted);
 
       const completedTask = data.filter( (task:ITask) => task.isCompleted);

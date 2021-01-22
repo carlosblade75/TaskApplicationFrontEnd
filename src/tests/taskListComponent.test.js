@@ -2,7 +2,6 @@ import React from 'react'
 import '@testing-library/jest-dom'
 import { TaskListComponent } from "../components/TaskListComponent/TaskListComponent"
 import { shallow } from 'enzyme'
-import { ITask } from '../Interface/ITask'
 
 describe('Testing for <TaskListComponent/>', () => {
     
@@ -24,7 +23,7 @@ describe('Testing for <TaskListComponent/>', () => {
 
     test('should show a list with a title and a task properly', () => {
 
-        const tasks:ITask[] = [{id:1, description:'First task', isCompleted:false}]
+        const tasks = [{id:1, description:'First task', isCompleted:false}]
 
         const title = `Pending tasks`
 

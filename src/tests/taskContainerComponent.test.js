@@ -2,7 +2,6 @@ import React from 'react'
 import '@testing-library/jest-dom'
 import { TaskContainerComponent } from "../components/TaskContainerComponent/TaskContainerComponent"
 import { shallow } from 'enzyme'
-import { ITask } from '../Interface/ITask'
 
 describe('Testing for <TaskContainerComponent/>', () => {
     
@@ -28,7 +27,7 @@ describe('Testing for <TaskContainerComponent/>', () => {
 
         const value= 'Task new'
 
-        const e:React.FormEvent<HTMLInputElement> = { currentTarget : { value: 'Task new' } }
+        const e = { currentTarget : { value: 'Task new' } }
 
         wrapper.find('input').simulate('change', e)
 
@@ -53,7 +52,7 @@ describe('Testing for <TaskContainerComponent/>', () => {
 
         const value= 'Task new'
 
-        const e:React.FormEvent<HTMLInputElement> = { currentTarget : { value } }
+        const e = { currentTarget : { value } }
 
         wrapper.find('input').simulate('change', e)
 
