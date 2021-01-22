@@ -17,31 +17,52 @@ export const TaskContainerComponent = () => {
   const [descriptionTask, setDescriptionTask] = useState('')
 
   const fetchDataAsync = async () => {
-    return  await TaskService.GetAllTask();
+
+    try {
+      return  await TaskService.GetAllTask();
+    }
+    catch(error) {
+      console.error(error);
+    }
+
   } 
 
   const handleCheckUpdate = async (task:ITask) => {
 
-    const {success, messageError} = await TaskService.UpdateTask(task);
+    try {
+      
+      const {success, messageError} = await TaskService.UpdateTask(task);
 
-    if (success) {
-      setTimeToRefresh(Date.now());
+      if (success) {
+        setTimeToRefresh(Date.now());
+      }
+      else {
+        console.error(messageError);
+      }
+
     }
-    else {
-      console.error(messageError);
+    catch(error) {
+      console.error(error);
     }
    
   }
 
   const handleAddButton = async () => {
 
-    const task:ITask = {isCompleted :false, id : 0, description : descriptionTask};
+    try {
 
-    await TaskService.AddTask(task);
+      const task:ITask = {isCompleted :false, id : 0, description : descriptionTask};
 
-    setDescriptionTask('');
-    
-    setTimeToRefresh(Date.now());
+      await TaskService.AddTask(task);
+  
+      setDescriptionTask('');
+      
+      setTimeToRefresh(Date.now());
+    }
+    catch(error) {
+      console.error(error);
+    }
+
   }
 
   const handleChangeDescription = (e: React.FormEvent<HTMLInputElement>) => {

@@ -19,18 +19,22 @@ export const TaskListComponent = (props: PropsTaskList) => {
 
           <div className="containerList">
   
-          <ul>
-            
-            {taskList.length > 0 && taskList.map((task, index) => {
-              return <TaskComponent 
-                            key= {task.id} 
-                            id = {task.id} 
-                            description = {task.description} 
-                            isCompleted = {task.isCompleted} 
-                      />
-            })}
+            <ul className = "listTask">
+              
+              {taskList.length > 0 && taskList.map((task, index) => {
+                return  (
+                          <li key= {task.id} > 
+                            <label>{index + 1}.</label>
+                            <TaskComponent 
+                                  id = {task.id} 
+                                  description = {task.description} 
+                                  isCompleted = {task.isCompleted} 
+                            />
+                          </li>
+                        )
+              })}
 
-          </ul>
+            </ul>
 
           </div>
 

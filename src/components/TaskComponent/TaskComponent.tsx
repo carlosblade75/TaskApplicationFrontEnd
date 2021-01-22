@@ -22,19 +22,14 @@ export const TaskComponent = (props: PropsTask) => {
     }
 
     return (
-        <div className="form-check">
+        <div className="form-check ContainerTask">
             
             <input  type="hidden" 
                     value={id}
             />
-
-            <input  className="form-check-input CheckBox" 
-                    type="checkbox" 
-                    checked={value} 
-                    onChange= { handleToggleChange }
-            />
-
-            <label  className={"form-check-label CheckBoxLabel " + (value ? "isCompleted" : "")}>
+            
+            <label  className={"form-check-label CheckBoxLabel " + (value ? "isCompleted" : "")}
+                    onClick={ handleToggleChange }>
                 {description}
             </label>
             

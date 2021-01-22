@@ -5,6 +5,10 @@
     text-decoration: underline;
 }
 
+.listTask {
+    list-style-type: none;
+}
+
 .containerList {
     height: 300px;
     overflow: scroll;
